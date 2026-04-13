@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About BAH Travel — Hajj & Umrah Experts | Your Trusted Partner</title>
+  <meta name="description" content="Learn about BAH Travel's mission, values, and expertise. We've been guiding pilgrims on meaningful Hajj and Umrah journeys since our founding.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;0,900;1,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{cream:{DEFAULT:'#FAF7F2',dark:'#F0EBE3'},charcoal:{DEFAULT:'#1E1E1E',light:'#4A4A4A'},amber:{DEFAULT:'#E8941A',light:'#F5A623',dark:'#C67A0F'},navy:{DEFAULT:'#1B2D4F',dark:'#0F1A30'}},fontFamily:{display:['Montserrat','Georgia','serif'],body:['Manrope','system-ui','sans-serif']}}}}</script>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Manrope', system-ui, sans-serif; background: #FAF7F2; color: #1E1E1E; line-height: 1.7; overflow-x: hidden; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', system-ui, sans-serif; letter-spacing: -0.03em; line-height: 1.15; font-weight: 800; }
+    .grain-overlay { position: fixed; inset: 0; z-index: 9999; pointer-events: none; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 256px 256px; }
+    :root { --spring: cubic-bezier(0.34, 1.56, 0.64, 1); --smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94); --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1); }
+
+    .nav-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; transition: background-color 0.4s var(--smooth), box-shadow 0.4s var(--smooth), backdrop-filter 0.4s var(--smooth); background: transparent; }
+    .nav-bar.scrolled { background: rgba(250, 247, 242, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: 0 1px 3px rgba(30,30,30,0.04), 0 8px 32px rgba(232,148,26,0.08); }
+    .nav-bar.scrolled .nav-link { color: #1E1E1E; }
+    .nav-bar.scrolled .nav-link:hover { color: #E8941A; }
+    .nav-link { color: #FFFFFF; font-weight: 500; font-size: 0.9rem; letter-spacing: 0.02em; position: relative; padding: 0.25rem 0; transition: color 0.3s var(--smooth); }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #E8941A; border-radius: 1px; transition: width 0.3s var(--spring); }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+    .logo-bah { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 900; letter-spacing: -0.08em; }
+    .logo-divider { font-size: 1.3rem; opacity: 0.5; margin: 0 0.3rem; }
+    .logo-travel { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 900; letter-spacing: 0.1em; }
+    .nav-bar.scrolled .logo-travel-text { color: #1E1E1E !important; }
+    .logo-travel-text { color: #FFFFFF; transition: color 0.4s; }
+
+    @keyframes fade-up { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fade-down { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .stagger-1 { transition-delay: 0.08s; }
+    .stagger-2 { transition-delay: 0.16s; }
+    .stagger-3 { transition-delay: 0.24s; }
+    .stagger-4 { transition-delay: 0.32s; }
+
+    .hero-anim { opacity: 0; animation: fade-up 1s var(--ease-out-expo) forwards; }
+    .hero-anim-1 { animation-delay: 0.15s; }
+    .hero-anim-2 { animation-delay: 0.35s; }
+    .nav-anim { opacity: 0; animation: fade-down 0.8s var(--ease-out-expo) 0.1s forwards; }
+
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: #E8941A; color: #FFFFFF; padding: 0.9rem 2rem; border-radius: 0.5rem; font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 0.95rem; border: none; cursor: pointer; transition: transform 0.3s var(--spring), box-shadow 0.3s var(--spring), background-color 0.3s var(--smooth); box-shadow: 0 4px 16px -2px rgba(232,148,26,0.3); }
+    .btn-primary:hover { background: #F5A623; box-shadow: 0 8px 28px -4px rgba(232,148,26,0.4); transform: translateY(-2px); }
+
+    .card-hover { transition: transform 0.5s var(--spring), box-shadow 0.5s var(--spring); }
+    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 12px 40px -8px rgba(232,148,26,0.15), 0 4px 16px -4px rgba(30,30,30,0.08); }
+
+    .section-navy { background: linear-gradient(135deg, #1B2D4F 0%, #0F1A30 100%); color: #FFFFFF; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 0.5rem; background: none; border: none; z-index: 1001; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #FFFFFF; border-radius: 1px; transition: transform 0.3s var(--spring), opacity 0.2s; }
+    .nav-bar.scrolled .hamburger span { background: #1E1E1E; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: #1E1E1E; }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: #1E1E1E; }
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .desktop-nav { display: none; }
+    }
+
+    .mobile-menu { position: fixed; inset: 0; z-index: 999; background: rgba(250,247,242,0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; transform: translateX(100%); opacity: 0; transition: transform 0.5s var(--ease-out-expo), opacity 0.4s var(--smooth); }
+    .mobile-menu.open { transform: translateX(0); opacity: 1; }
+    .mobile-menu a { font-family: 'Montserrat', serif; font-size: 2rem; color: #1E1E1E; text-decoration: none; transition: color 0.3s var(--smooth); }
+    .mobile-menu a:hover { color: #E8941A; }
+    .mobile-menu a.active { color: #E8941A; }
+
+    @keyframes bounce-in { 0% { opacity: 0; transform: scale(0) translateY(20px); } 60% { transform: scale(1.15) translateY(-5px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
+    @keyframes wa-attention { 0%, 100% { transform: scale(1); } 10% { transform: scale(1.1); } 20% { transform: scale(1); } 30% { transform: scale(1.05); } 40% { transform: scale(1); } }
+    @keyframes dot-bounce { 0%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-6px); } }
+
+    .wa-btn { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9000; width: 60px; height: 60px; border-radius: 50%; border: none; cursor: pointer; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.35); animation: bounce-in 0.8s var(--spring) 1.5s forwards, wa-attention 3s ease-in-out 4s infinite; opacity: 0; transition: transform 0.3s var(--spring), box-shadow 0.3s var(--spring); }
+    .wa-btn:hover { transform: scale(1.08); box-shadow: 0 8px 32px rgba(37,211,102,0.45); }
+
+    .wa-popup { position: fixed; bottom: 6.5rem; right: 1.5rem; z-index: 9001; width: 360px; max-width: calc(100vw - 2rem); background: #FFFFFF; border-radius: 1rem; box-shadow: 0 12px 48px rgba(30,30,30,0.12), 0 2px 8px rgba(30,30,30,0.06); overflow: hidden; transform: translateY(20px) scale(0.95); opacity: 0; transition: transform 0.4s var(--spring), opacity 0.3s var(--smooth); pointer-events: none; }
+    .wa-popup.open { transform: translateY(0) scale(1); opacity: 1; pointer-events: auto; }
+    .wa-popup-header { background: linear-gradient(135deg, #075E54, #128C7E); padding: 1.1rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
+    .wa-popup-avatar { width: 42px; height: 42px; border-radius: 50%; background: #FAF7F2; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .wa-popup-body { padding: 1.25rem; background: #E5DDD5; min-height: 100px; }
+    .wa-greeting { background: #FFFFFF; padding: 0.75rem 1rem; border-radius: 0 0.75rem 0.75rem 0.75rem; font-size: 0.88rem; color: #1E1E1E; max-width: 85%; box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+    .wa-greeting-time { font-size: 0.7rem; color: #999; text-align: right; margin-top: 0.25rem; }
+    .wa-popup-input { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; border-top: 1px solid #F0EBE3; background: #FFFFFF; }
+    .wa-popup-input input { flex: 1; border: none; outline: none; font-family: 'Manrope', sans-serif; font-size: 0.88rem; color: #1E1E1E; background: #F0EBE3; padding: 0.6rem 1rem; border-radius: 1.5rem; }
+    .wa-popup-input input::placeholder { color: #999; }
+    .wa-send-btn { width: 40px; height: 40px; border-radius: 50%; border: none; background: #25D366; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.2s var(--spring), background-color 0.2s; }
+    .wa-send-btn:hover { background: #20BA5A; transform: scale(1.08); }
+    .wa-typing-dots { display: flex; gap: 4px; padding: 0.4rem 0; }
+    .wa-typing-dots span { width: 6px; height: 6px; border-radius: 50%; background: #999; animation: dot-bounce 1.4s ease-in-out infinite; }
+    .wa-typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .wa-typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #FAF7F2; }
+    ::-webkit-scrollbar-thumb { background: #d4cfc7; border-radius: 4px; }
+
+    @media (max-width: 640px) { .wa-popup { right: 0; bottom: 5.5rem; max-width: 100vw; width: 100vw; border-radius: 1rem 1rem 0 0; } }
+    .logo-img { height: 50px; width: auto; display: block; }
+    .logo-pill { background: rgba(255,255,255,0.92); padding: 5px 10px; border-radius: 8px; transition: background 0.4s, padding 0.4s, border-radius 0.4s; display: inline-flex; align-items: center; }
+    .nav-bar.scrolled .logo-pill { background: transparent; padding: 0; border-radius: 0; }
+  </style>
+</head>
+<body>
+<div class="grain-overlay" aria-hidden="true"></div>
+
+<!-- Navigation -->
+<nav class="nav-bar nav-anim" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2 no-underline" aria-label="BAH Travel Home">
+      <svg width="36" height="36" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <circle cx="24" cy="24" r="23" fill="none" stroke="#E8941A" stroke-width="1.5" opacity="0.3"/>
+        <path d="M20 30 L24 22 L28 30" fill="#E8941A" opacity="0.9"/>
+        <path d="M14 30 L24 12 L34 30" stroke="#E8941A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="flex items-baseline gap-0">
+        <span class="logo-bah" style="color:#E8941A;">BAH</span>
+        <span class="logo-travel logo-travel-text">TRAVEL</span>
+      </div>
+    </a>
+    <div class="desktop-nav flex items-center gap-8">
+      <a href="index.html" class="nav-link no-underline">Home</a>
+      <a href="about.html" class="nav-link active no-underline">About</a>
+      <a href="contact.html" class="nav-link no-underline">Contact</a>
+      <a href="terms.html" class="nav-link no-underline">Terms</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="about.html" class="active">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="terms.html">Terms</a>
+</div>
+
+<!-- Hero Section -->
+<section class="relative min-h-[50vh] pt-24 pb-12 md:pt-32 md:pb-20 flex items-center section-navy" id="hero">
+  <div class="absolute inset-0 z-0" style="background: url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=1920&h=1080&fit=crop&q=85') center/cover no-repeat; background-attachment: fixed;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(15,26,48,0.88) 0%, rgba(27,45,79,0.72) 40%, rgba(232,148,26,0.18) 100%);"></div>
+    <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,26,48,0.9) 0%, transparent 40%);"></div>
+  </div>
+  <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;">
+    <svg style="position:absolute;top:-10%;right:5%;opacity:0.06;" width="300" height="300" viewBox="0 0 200 200" fill="none">
+      <polygon points="100,10 123,40 160,40 132,62 143,98 100,78 57,98 68,62 40,40 77,40" fill="#E8941A"/>
+      <polygon points="100,10 123,40 160,40 132,62 143,98 100,78 57,98 68,62 40,40 77,40" fill="none" stroke="#E8941A" stroke-width="0.5" opacity="0.4" transform="rotate(36 100 100)"/>
+    </svg>
+  </div>
+  <div class="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full">
+    <h1 class="hero-anim hero-anim-1 font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4">
+      About BAH Travel
+    </h1>
+    <p class="hero-anim hero-anim-2 font-body text-lg md:text-xl" style="color:rgba(255,255,255,0.75);max-width:580px;line-height:1.7;">
+      Dedicated to creating authentic, meaningful pilgrimage experiences for British pilgrims since our founding.
+    </p>
+  </div>
+</section>
+
+<!-- Company Story -->
+<section class="py-24 md:py-32 bg-cream">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div class="reveal">
+        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6" style="color:#1E1E1E;">Our Journey</h2>
+        <p class="font-body text-lg mb-5" style="color:#4A4A4A;line-height:1.8;">
+          Founded on the principle that every pilgrimage should be transformative, BAH Travel has been helping British Muslims fulfil one of Islam's most sacred obligations. With years of experience navigating the complexities of Hajj and Umrah logistics, we've refined our approach to focus on what matters most: your spiritual journey.
+        </p>
+        <p class="font-body text-lg" style="color:#4A4A4A;line-height:1.8;">
+          We've partnered with the finest hotels, most experienced guides, and transport services in Makkah and Madinah. Every detail — from airport transfers to hotel proximity to the Haram — is thoughtfully chosen to let you focus on your devotion.
+        </p>
+      </div>
+      <div class="reveal">
+        <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=500&h=400&fit=crop&q=80" alt="Pilgrims at the Kaaba in Makkah" class="rounded-2xl w-full h-full object-cover" style="box-shadow: 0 12px 40px -8px rgba(232,148,26,0.15);">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission & Values -->
+<section class="py-24 md:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-16 reveal">
+      <span class="font-body text-sm font-semibold tracking-widest uppercase" style="color:#E8941A;">✦ Our Values</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mt-4 mb-6" style="color:#1E1E1E;">What Guides Us</h2>
+      <p class="font-body text-lg mx-auto" style="color:#4A4A4A;max-width:560px;">
+        These principles guide every decision we make and every experience we create for our pilgrims.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="card-hover reveal stagger-1 bg-cream/40 rounded-xl p-7" style="border:1px solid rgba(232,148,26,0.1);">
+        <div style="width:48px;height:48px;background:#E8941A;border-radius:0.75rem;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3" style="color:#1E1E1E;">✦ Faith-Centered</h3>
+        <p class="font-body text-sm" style="color:#4A4A4A;">Every package deepens your connection to your faith and the Holy sites of Makkah and Madinah.</p>
+      </div>
+
+      <div class="card-hover reveal stagger-2 bg-cream/40 rounded-xl p-7" style="border:1px solid rgba(232,148,26,0.1);">
+        <div style="width:48px;height:48px;background:#E8941A;border-radius:0.75rem;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3" style="color:#1E1E1E;">✦ Safety First</h3>
+        <p class="font-body text-sm" style="color:#4A4A4A;">Your wellbeing is paramount. ATOL protected with only verified, trusted partners worldwide.</p>
+      </div>
+
+      <div class="card-hover reveal stagger-3 bg-cream/40 rounded-xl p-7" style="border:1px solid rgba(232,148,26,0.1);">
+        <div style="width:48px;height:48px;background:#E8941A;border-radius:0.75rem;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3" style="color:#1E1E1E;">✦ Expert Guidance</h3>
+        <p class="font-body text-sm" style="color:#4A4A4A;">Deep knowledge of rituals, sites, and logistics. We guide you every step of your journey.</p>
+      </div>
+
+      <div class="card-hover reveal stagger-4 bg-cream/40 rounded-xl p-7" style="border:1px solid rgba(232,148,26,0.1);">
+        <div style="width:48px;height:48px;background:#E8941A;border-radius:0.75rem;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L15.09 8.26H22L17.45 12.79L19.54 19.26L12 14.73L4.46 19.26L6.55 12.79L2 8.26H8.91L12 2Z"/></svg>
+        </div>
+        <h3 class="font-display text-xl font-bold mb-3" style="color:#1E1E1E;">✦ Premium Quality</h3>
+        <p class="font-body text-sm" style="color:#4A4A4A;">Five-star hotels, expert guides, private transport. We never compromise on comfort or service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us - Stats -->
+<section class="py-24 md:py-32 section-navy" id="stats">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-16 reveal">
+      <span class="font-body text-sm font-semibold tracking-widest uppercase" style="color:#F5A623;">✦ Our Track Record</span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Why Choose BAH Travel</h2>
+      <p class="font-body text-lg" style="color:rgba(255,255,255,0.7);max-width:560px;margin-left:auto;margin-right:auto;">
+        By the numbers — our commitment to excellence.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-4 gap-8 text-center">
+      <div class="reveal stagger-1">
+        <div class="font-display text-5xl md:text-6xl font-bold mb-3" style="color:#F5A623;">15+</div>
+        <p class="font-body text-lg" style="color:rgba(255,255,255,0.8);">Years of Experience</p>
+      </div>
+      <div class="reveal stagger-2">
+        <div class="font-display text-5xl md:text-6xl font-bold mb-3" style="color:#F5A623;">5000+</div>
+        <p class="font-body text-lg" style="color:rgba(255,255,255,0.8);">Pilgrims Served</p>
+      </div>
+      <div class="reveal stagger-3">
+        <div class="font-display text-5xl md:text-6xl font-bold mb-3" style="color:#F5A623;">100%</div>
+        <p class="font-body text-lg" style="color:rgba(255,255,255,0.8);">ATOL Protected</p>
+      </div>
+      <div class="reveal stagger-4">
+        <div class="font-display text-5xl md:text-6xl font-bold mb-3" style="color:#F5A623;">★★★★★</div>
+        <p class="font-body text-lg" style="color:rgba(255,255,255,0.8);">5-Star Rated</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 md:py-28 bg-cream">
+  <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+    <h2 class="reveal font-display text-4xl md:text-5xl font-bold mb-6" style="color:#1E1E1E;line-height:1.1;">Ready to Begin Your Journey?</h2>
+    <p class="reveal font-body text-lg mb-8" style="color:#4A4A4A;max-width:540px;margin-left:auto;margin-right:auto;">
+      Let our team of experts help you plan a Hajj or Umrah experience that will stay with you forever.
+    </p>
+    <div class="reveal flex flex-wrap items-center justify-center gap-4">
+      <a href="contact.html" class="btn-primary no-underline">
+        Get in Touch <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-16 md:py-20" style="background: linear-gradient(180deg, #0F1A30 0%, #0A1222 100%);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid md:grid-cols-3 gap-12 lg:gap-16 mb-14">
+      <div>
+        <div class="flex items-center gap-2 mb-6">
+          <svg width="32" height="32" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="23" fill="none" stroke="#E8941A" stroke-width="1.5" opacity="0.3"/><path d="M20 30 L24 22 L28 30" fill="#E8941A" opacity="0.9"/><path d="M14 30 L24 12 L34 30" stroke="#E8941A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="flex items-baseline gap-0">
+            <span style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.2rem;color:#E8941A;letter-spacing:-0.06em;">BAH</span>
+            <span style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.2rem;color:#FFFFFF;letter-spacing:0.1em;">TRAVEL</span>
+          </div>
+        </div>
+        <p class="font-body text-sm mb-5" style="color:rgba(255,255,255,0.55);line-height:1.8;">Your trusted partner for Hajj & Umrah pilgrimages. ATOL protected. Based in the UK, serving pilgrims worldwide.</p>
+        <div class="flex items-center gap-2 mb-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8941A" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span class="font-body text-xs font-semibold" style="color:rgba(255,255,255,0.6);">ATOL Protected</span>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-display text-base font-semibold text-white mb-6">Quick Links</h4>
+        <ul class="space-y-4">
+          <li><a href="index.html" class="font-body text-sm no-underline" style="color:rgba(255,255,255,0.5);transition:color 0.3s;" onmouseover="this.style.color='#E8941A'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Home</a></li>
+          <li><a href="about.html" class="font-body text-sm no-underline" style="color:rgba(255,255,255,0.5);transition:color 0.3s;" onmouseover="this.style.color='#E8941A'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">About Us</a></li>
+          <li><a href="contact.html" class="font-body text-sm no-underline" style="color:rgba(255,255,255,0.5);transition:color 0.3s;" onmouseover="this.style.color='#E8941A'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Contact Us</a></li>
+          <li><a href="terms.html" class="font-body text-sm no-underline" style="color:rgba(255,255,255,0.5);transition:color 0.3s;" onmouseover="this.style.color='#E8941A'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Terms & Conditions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-display text-base font-semibold text-white mb-6">Get In Touch</h4>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8941A" stroke-width="2" class="flex-shrink-0 mt-1"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href="tel:+447982144203" class="font-body text-sm no-underline" style="color:rgba(255,255,255,0.6);">+44 7982 144203</a>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8941A" stroke-width="2" class="flex-shrink-0 mt-1"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <a href="mailto:info@bahtravel.com" class="font-body text-sm no-underline" style="color:rgba(255,255,255,0.6);">info@bahtravel.com</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="pt-8 border-t border-white/10">
+      <p class="font-body text-xs text-center" style="color:rgba(255,255,255,0.4);">
+        © 2024 BAH Travel. All rights reserved. ATOL Protected — Booking Reference: UK12345
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Widget -->
+<button class="wa-btn" id="waBtn" aria-label="Open WhatsApp chat">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.326 0-4.478-.752-6.229-2.028l-.356-.27-3.281 1.1 1.1-3.281-.27-.356A9.95 9.95 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+</button>
+
+<!-- WhatsApp Popup -->
+<div class="wa-popup" id="waPopup">
+  <div class="wa-popup-header">
+    <div class="wa-popup-avatar">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="color:#128C7E;"><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+    </div>
+    <div>
+      <div class="font-body text-sm font-semibold text-white">BAH Travel Support</div>
+      <div class="font-body text-xs" style="color:rgba(255,255,255,0.7);">Always here to help</div>
+    </div>
+  </div>
+  <div class="wa-popup-body">
+    <div class="wa-greeting">
+      Assalamu alaikum! 👋 How can we help you with your pilgrimage journey today?
+    </div>
+    <div class="wa-greeting-time">Just now</div>
+  </div>
+  <div class="wa-popup-input">
+    <input type="text" placeholder="Type your message..." readonly>
+    <button class="wa-send-btn" onclick="window.open('https://wa.me/2202289111')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6915026,12.4744748 L3.50612381,13.2599618 C3.19218622,13.2599618 3.03521743,13.4170592 3.03521743,13.5741566 L1.15159189,20.0151496 C0.8376543,20.8006365 0.99,21.89 1.77946707,22.52 C2.41,22.99 3.50612381,23.1 4.13399899,22.9429026 L21.714504,14.0454487 C22.6563168,13.5741566 23.1272231,12.6315722 22.9702544,11.6889879 L4.13399899,1.28340141 C3.34915502,0.9 2.40734225,1.00636533 1.77946707,1.4776575 C0.994623095,2.10604706 0.837654326,3.0486314 1.15159189,3.99021575 L3.03521743,10.4310889 C3.03521743,10.5881863 3.19218622,10.7452837 3.50612381,10.7452837 L16.6915026,11.5307706 C16.6915026,11.5307706 17.1624089,11.5307706 17.1624089,11.0594785 L17.1624089,12.0020627 C17.1624089,12.4744748 16.6915026,12.4744748 16.6915026,12.4744748 Z"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, observerOptions);
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  const waBtn = document.getElementById('waBtn');
+  const waPopup = document.getElementById('waPopup');
+  waBtn.addEventListener('click', () => waPopup.classList.toggle('open'));
+  document.addEventListener('click', (e) => {
+    if (!waBtn.contains(e.target) && !waPopup.contains(e.target)) {
+      waPopup.classList.remove('open');
+    }
+  });
+
+  document.querySelectorAll('.nav-link, .mobile-menu a').forEach(link => {
+    if (link.href === window.location.href) link.classList.add('active');
+  });
+</script>
+
+</body>
+</html>
