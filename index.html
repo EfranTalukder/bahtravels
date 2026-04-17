@@ -1618,8 +1618,8 @@
       <div class="wa-greeting-time">Just now</div>
     </div>
     <div class="wa-popup-input">
-      <input type="text" placeholder="Type your message..." readonly>
-      <button class="wa-send-btn" onclick="window.open('https://wa.me/2202289111')">
+      <input type="text" placeholder="Type your message..." onkeydown="if(event.key === 'Enter') this.nextElementSibling.click()">
+      <button class="wa-send-btn" onclick="const p = this.previousElementSibling; const msg = p.value.trim(); window.open(msg ? 'https://wa.me/2202289111?text=' + encodeURIComponent(msg) : 'https://wa.me/2202289111', '_blank'); p.value = '';">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
           <path
             d="M16.6915026,12.4744748 L3.50612381,13.2599618 C3.19218622,13.2599618 3.03521743,13.4170592 3.03521743,13.5741566 L1.15159189,20.0151496 C0.8376543,20.8006365 0.99,21.89 1.77946707,22.52 C2.41,22.99 3.50612381,23.1 4.13399899,22.9429026 L21.714504,14.0454487 C22.6563168,13.5741566 23.1272231,12.6315722 22.9702544,11.6889879 L4.13399899,1.28340141 C3.34915502,0.9 2.40734225,1.00636533 1.77946707,1.4776575 C0.994623095,2.10604706 0.837654326,3.0486314 1.15159189,3.99021575 L3.03521743,10.4310889 C3.03521743,10.5881863 3.19218622,10.7452837 3.50612381,10.7452837 L16.6915026,11.5307706 C16.6915026,11.5307706 17.1624089,11.5307706 17.1624089,11.0594785 L17.1624089,12.0020627 C17.1624089,12.4744748 16.6915026,12.4744748 16.6915026,12.4744748 Z" />
@@ -1683,7 +1683,12 @@
     const waBtn = document.getElementById('waBtn');
     const waPopup = document.getElementById('waPopup');
 
-    waBtn.addEventListener('click', () => {
+    waBtn.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        window.open('https://wa.me/2202289111', '_blank');
+        return;
+      }
       waPopup.classList.toggle('open');
     });
 

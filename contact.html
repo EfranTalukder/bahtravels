@@ -1363,7 +1363,12 @@
       const waClose = document.getElementById('waClose');
       const waInput = document.getElementById('waInput');
       const waSend = document.getElementById('waSend');
-      waBtn.addEventListener('click', () => {
+      waBtn.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          window.open('https://wa.me/2202289111', '_blank');
+          return;
+        }
         waPopup.classList.toggle('open');
         if (waPopup.classList.contains('open')) waInput.focus();
       });
