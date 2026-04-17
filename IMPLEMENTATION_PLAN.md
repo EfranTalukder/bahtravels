@@ -144,7 +144,7 @@ All pages: standalone HTML, inline styles + Tailwind CDN, shared nav/footer/What
 - All 4 pages load at localhost:3000
 - Nav links work across all pages with correct active states
 - WhatsApp button on all pages → wa.me/2202289111
-- Phone link → tel:+447982144203
+- Phone link → tel:+2202289111
 - Social icons: Facebook, Instagram, TikTok (with actual links)
 - Email link → mailto:info@bahtravel.com
 - Mobile responsive (375px, 768px, 1440px)
